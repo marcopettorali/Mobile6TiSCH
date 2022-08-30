@@ -1,3 +1,3 @@
-package mobile6tisch_lite;
+package mobile6tisch;
 
 @license(LGPL);

@@ -1,2 +1,0 @@
-#define UPSTREAM_PACKET_K 1
-#define DOWNSTREAM_PACKET_K 2

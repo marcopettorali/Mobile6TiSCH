@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/mobile6tisch -n .:../src $*
+# for shared lib, use: opp_run -l ../src/mobile6tisch -n .:../src $*

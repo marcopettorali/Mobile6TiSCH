@@ -1,5 +1,5 @@
 #
-# OMNeT++/OMNEST Makefile for Mobile6TiSCH-Lite
+# OMNeT++/OMNEST Makefile for Mobile6TiSCH
 #
 # This file was generated with the command:
 #  opp_makemake -f --deep
@@ -7,16 +7,15 @@
 
 # Name of target to be created (-o option)
 TARGET_DIR = .
-TARGET_NAME = Mobile6TiSCH-Lite$(D)
+TARGET_NAME = Mobile6TiSCH$(D)
 TARGET = $(TARGET_NAME)$(EXE_SUFFIX)
 TARGET_IMPLIB = $(TARGET_NAME)$(IMPLIB_SUFFIX)
 TARGET_IMPDEF = $(TARGET_NAME)$(IMPDEF_SUFFIX)
 TARGET_FILES = $(TARGET_DIR)/$(TARGET)
 
 # User interface (uncomment one) (-u option)
-USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LIBS)
+USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(QTENV_LIBS) $(CMDENV_LIBS)
 #USERIF_LIBS = $(CMDENV_LIBS)
-#USERIF_LIBS = $(TKENV_LIBS)
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
@@ -35,34 +34,46 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
 OBJS = \
-    $O/borderrouter/borderroutercore/borderroutercore.o \
-    $O/mobilenode/mobilenodecore/mobilenodecore.o \
-    $O/networkcoordinator/networkcoordinator.o \
-    $O/networkcoordinator/deduptable/deduptable.o \
-    $O/networkcoordinator/distancetable/distancetable.o \
-    $O/networkcoordinator/rssitable/rssitable.o \
-    $O/physicallayer/medium/medium.o \
-    $O/physicallayer/mobility/mobility.o \
-    $O/physicallayer/radio/radio.o \
-    $O/tsch/tsch.o \
-    $O/tsch/tschschedule/tschschedule.o \
-    $O/applicationpkts/downstreampkt_m.o \
-    $O/applicationpkts/upstreampkt_m.o \
-    $O/physicallayer/medium/intarray/IntArray_m.o \
-    $O/physicallayer/radio/packetcontrolinfo/packetcontrolinfo_m.o \
-    $O/physicallayer/radio/radiopkt/radiopkt_m.o \
-    $O/tsch/tschpkt/tschack_m.o \
-    $O/tsch/tschpkt/tschpkt_m.o
+    $O/application/ApplicationBase.o \
+    $O/application/ConvergecastClient.o \
+    $O/application/ConvergecastServer.o \
+    $O/application/ReqResClient.o \
+    $O/application/ReqResServer.o \
+    $O/ietf6tisch/IETF6TiSCH.o \
+    $O/ietf6tisch/TSCHSchedule.o \
+    $O/ietf6tisch/schedulingfunction/SchedulingFunctionBase.o \
+    $O/ietf6tisch/schedulingfunction/SDDUSF.o \
+    $O/physicallayer/mobility/BRMobility.o \
+    $O/physicallayer/mobility/LinearMobility.o \
+    $O/physicallayer/mobility/MobilityBase.o \
+    $O/physicallayer/mobility/RandomMobility.o \
+    $O/physicallayer/mobility/StaticMobility.o \
+    $O/physicallayer/radio/GlobalRadioRegister.o \
+    $O/physicallayer/radio/Radio.o \
+    $O/shmg/backboneprotocol/BackboneProtocol.o \
+    $O/shmg/brcore/BRCore.o \
+    $O/shmg/nccore/DedupTable.o \
+    $O/shmg/nccore/DistanceTable.o \
+    $O/shmg/nccore/NCCore.o \
+    $O/application/ConvergecastPkt_m.o \
+    $O/application/ReqResPkt_m.o \
+    $O/ietf6tisch/IETF6TiSCHAck_m.o \
+    $O/ietf6tisch/IETF6TiSCHPkt_m.o \
+    $O/ietf6tisch/NetworkLayerPkt_m.o \
+    $O/physicallayer/radio/RadioPkt_m.o \
+    $O/physicallayer/radio/SignalDescriptor_m.o \
+    $O/shmg/backboneprotocol/BackbonePkt_m.o
 
 # Message files
 MSGFILES = \
-    applicationpkts/downstreampkt.msg \
-    applicationpkts/upstreampkt.msg \
-    physicallayer/medium/intarray/IntArray.msg \
-    physicallayer/radio/packetcontrolinfo/packetcontrolinfo.msg \
-    physicallayer/radio/radiopkt/radiopkt.msg \
-    tsch/tschpkt/tschack.msg \
-    tsch/tschpkt/tschpkt.msg
+    application/ConvergecastPkt.msg \
+    application/ReqResPkt.msg \
+    ietf6tisch/IETF6TiSCHAck.msg \
+    ietf6tisch/IETF6TiSCHPkt.msg \
+    ietf6tisch/NetworkLayerPkt.msg \
+    physicallayer/radio/RadioPkt.msg \
+    physicallayer/radio/SignalDescriptor.msg \
+    shmg/backboneprotocol/BackbonePkt.msg
 
 # SM files
 SMFILES =
@@ -113,6 +124,8 @@ $(TARGET_DIR)/% :: $O/%
 	$(Q)$(LN) $< $@
 ifeq ($(TOOLCHAIN_NAME),clang-msabi)
 	-$(Q)-$(LN) $(<:%.dll=%.lib) $(@:%.dll=%.lib) 2>/dev/null
+
+$O/$(TARGET_NAME).pdb: $O/$(TARGET)
 endif
 
 $O/$(TARGET): $(OBJS)  $(wildcard $(EXTRA_OBJS)) Makefile $(CONFIGFILE)
