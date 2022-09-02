@@ -65,8 +65,6 @@ void LinearMobility::handleMessage(cMessage *msg) {
             currentY += speedY;
         }
 
-        EV << "(" << currentX << "," << currentY << ")" << endl;
-
         cDisplayString &str = getParentModule()->getDisplayString();
         str.setTagArg("p", 0, currentX);
         str.setTagArg("p", 1, currentY);

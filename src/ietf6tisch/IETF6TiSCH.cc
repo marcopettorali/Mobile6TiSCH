@@ -152,8 +152,6 @@ void IETF6TiSCH::checkUnackedPackets() {
             // reschedule transmission of the packet
             schedulePacket(elem->originalPkt->dup());
             elem->retransmissions += 1;
-            EV << "macAddress: " << myMacAddress << ". Rescheduled packet "
-                      << elem->originalPkt->getSeqNum() << endl;
 
             emit(retransmissionsSignal, 1);
             if (lastRetransmission != -1)

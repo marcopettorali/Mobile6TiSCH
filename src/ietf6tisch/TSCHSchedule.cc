@@ -80,8 +80,6 @@ cell_t TSCHSchedule::getAction(ostream& EV, int asn, int subject_address, int su
         }
     }
 
-    EV << "Action is " << ret.tx << " " << ret.rx << " " << ret.channel << " " << ret.timeslot << endl;
-
     return ret;
 }
 
