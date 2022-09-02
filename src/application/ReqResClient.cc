@@ -91,7 +91,7 @@ void ReqResClient::handleMessage(cMessage *msg) {
         emit(packetsReceived, 1);
         emit(packetsDelay, simTime() - pkt->getUpSendTime());
         emit(packetsDownstreamDelay, simTime() - pkt->getDownSendTime());
-        EV << "Receievd downstream packet" << endl;
+        EV << "Received downstream packet" << endl;
         delete pkt;
     }
 }

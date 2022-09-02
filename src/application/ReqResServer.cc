@@ -38,7 +38,7 @@ void ReqResServer::handleMessage(cMessage *msg) {
     
     send(backPkt, "lowerLayerOut");
 
-    //EV << "Received upstream packet" << endl;
+    EV << "Received upstream packet" << endl;
 
 
     delete pkt;

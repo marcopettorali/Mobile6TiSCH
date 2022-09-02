@@ -39,6 +39,8 @@ void BRCore::handleMessage(cMessage *msg) {
 }
 
 void BRCore::handleBackboneCommand(cMessage* msg) {
+    EV << ietf6TiSCH->myMacAddress << ": Received downstream packet" << endl;
+
     BackbonePkt* pkt = check_and_cast<BackbonePkt*>(msg);
     NetworkLayerPkt* netPkt = new NetworkLayerPkt("netPkt");
     
