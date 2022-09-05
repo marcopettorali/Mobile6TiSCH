@@ -41,6 +41,7 @@ OBJS = \
     $O/application/ReqResServer.o \
     $O/ietf6tisch/IETF6TiSCH.o \
     $O/ietf6tisch/TSCHSchedule.o \
+    $O/ietf6tisch/schedulingfunction/NewSF.o \
     $O/ietf6tisch/schedulingfunction/SchedulingFunctionBase.o \
     $O/ietf6tisch/schedulingfunction/SDDUSF.o \
     $O/physicallayer/mobility/BRMobility.o \

@@ -13,12 +13,18 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package mobile6tisch.ietf6tisch.schedulingfunction;
+#include "NewSF.h"
 
-simple SDDUSF like ISchedulingFunction
-{
-    @display("i=block/table2");
-    bool downloadFromNC = default(true);
-    string ncCore = default("^.^.nc.ncCore");
-    int groupSize;
+Define_Module(NewSF);
+
+void NewSF::initialize() {
+    // TODO - Generated method body
+}
+
+void NewSF::handleMessage(cMessage *msg) {
+    // TODO - Generated method body
+}
+
+TSCHSchedule* NewSF::getSchedule() {
+    return NULL;
 }

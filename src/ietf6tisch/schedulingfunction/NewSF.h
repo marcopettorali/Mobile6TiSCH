@@ -13,12 +13,25 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package mobile6tisch.ietf6tisch.schedulingfunction;
+#ifndef __MOBILE6TISCH_NEWSF_H_
+#define __MOBILE6TISCH_NEWSF_H_
 
-simple SDDUSF like ISchedulingFunction
-{
-    @display("i=block/table2");
-    bool downloadFromNC = default(true);
-    string ncCore = default("^.^.nc.ncCore");
-    int groupSize;
-}
+#include <omnetpp.h>
+#include "SchedulingFunctionBase.h"
+#include "../../shmg/nccore/NCCore.h"
+
+using namespace omnetpp;
+
+/**
+ * TODO - Generated class
+ */
+class NewSF: public SchedulingFunctionBase {
+protected:
+    virtual void initialize() override;
+    virtual void handleMessage(cMessage *msg) override;
+
+public:
+    TSCHSchedule* getSchedule() override;
+};
+
+#endif

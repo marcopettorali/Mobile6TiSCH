@@ -14,8 +14,12 @@
 // 
 
 package mobile6tisch.ietf6tisch.schedulingfunction;
+import mobile6tisch.ietf6tisch.schedulingfunction.ISchedulingFunction;
 
-simple SDDUSF like ISchedulingFunction
+//
+// TODO auto-generated module
+//
+simple NewSF like ISchedulingFunction
 {
     @display("i=block/table2");
     bool downloadFromNC = default(true);
