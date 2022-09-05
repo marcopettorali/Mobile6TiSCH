@@ -26,7 +26,11 @@
 using namespace omnetpp;
 
 class ConvergecastClient : public ApplicationBase {
-    double period;
+    double upPeriod;
+    double downPeriod;
+    double upDelay;
+    double downDelay;
+    
     IETF6TiSCH *ietf6TiSCH;
     NCCore *ncCore;
 

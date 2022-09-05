@@ -104,12 +104,12 @@ void NCCore::handleUpperLayerPacket(BackbonePkt *backPkt){
  * NODES REGISTRATION
  **********************************************************************************************/
 
-void NCCore::registerMN(int macAddress, double upRate, double downRate, double x, double y, double maxSpeed) {
+void NCCore::registerMN(int macAddress, double upRate, double downRate,  double upDelay, double downDelay,  double x, double y, double maxSpeed) {
     // find the closest BR as delegateBR
     int delegateBR = findClosestBR(x, y);
     upsertMNForBR(delegateBR, macAddress, false);
 
-    mn_vector_entry_t entry = {macAddress, upRate, downRate, x, y, delegateBR, maxSpeed, {}};
+    mn_vector_entry_t entry = {macAddress, upRate, downRate, upDelay, downDelay, x, y, delegateBR, maxSpeed, {}};
     mns.push_back(entry);
 }
 

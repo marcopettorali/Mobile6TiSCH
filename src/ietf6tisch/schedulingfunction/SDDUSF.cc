@@ -17,23 +17,8 @@
 
 #include <math.h>
 
-#include <algorithm>
 
 Define_Module(SDDUSF);
-
-/******************************************************************************
- * Math utility functions
- ******************************************************************************/
-
-int coprime(int n, int C, int s = +1) {
-    int i = n;
-    while (true) {
-        if (__gcd(i, C) == 1) {
-            return i;
-        }
-        i += s;
-    }
-}
 
 void SDDUSF::initialize() {
     SchedulingFunctionBase::initialize();

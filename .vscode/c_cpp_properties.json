@@ -5,7 +5,8 @@
             "includePath": [
                 "${default}",
                 "${workspaceFolder}/src/**",
-                "/home/marco/omnetpp-6.0/include"
+                "/home/marco/omnetpp-6.0/include",
+                "/usr/local/lib/ortools/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

@@ -63,7 +63,11 @@
         "compare": "cpp",
         "concepts": "cpp",
         "iomanip": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "bitset": "cpp",
+        "forward_list": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp"
     },
     "python.formatting.provider": "autopep8"
 }

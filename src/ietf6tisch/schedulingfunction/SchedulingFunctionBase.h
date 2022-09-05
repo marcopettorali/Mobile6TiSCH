@@ -25,12 +25,13 @@ using namespace omnetpp;
 /**
  * TODO - Generated class
  */
-class SchedulingFunctionBase : public cSimpleModule {
-   protected:
-    virtual void initialize() override;
-    virtual void handleMessage(cMessage* msg) override;
+class SchedulingFunctionBase: public cSimpleModule {
 
-   public:
+protected:
+    virtual void initialize() override;
+    virtual void handleMessage(cMessage *msg) override;
+    int coprime(int n, int C, int s = +1);
+public:
     virtual TSCHSchedule* getSchedule() = 0;
 };
 

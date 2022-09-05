@@ -45,6 +45,8 @@ struct mn_vector_entry_t {
     int macAddress;
     double upRate;
     double downRate;
+    double upDelay;
+    double downDelay;
     double x;
     double y;
     int delegateBR;
@@ -106,7 +108,7 @@ class NCCore : public cSimpleModule {
     std::vector<mn_vector_entry_t> getMNs() { return mns; }
 
     // registration
-    void registerMN(int macAddress, double upRate, double downRate, double x, double y, double maxSpeed);
+    void registerMN(int macAddress, double upRate, double downRate, double upDelay, double downDelay, double x, double y, double maxSpeed);
     void registerBR(int macAddress, int brId, BRCore *br, double x, double y, double r);
 
     // initialization of nodes and brs

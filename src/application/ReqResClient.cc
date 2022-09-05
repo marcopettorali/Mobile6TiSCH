@@ -22,7 +22,10 @@ void ReqResClient::initialize(int stage) {
 
     if (stage == 2) {  // retrieve basic info for the mobile node
 
-        period = par("period");
+        double upPeriod = par("upPeriod");
+        double downPeriod = par("downPeriod");
+        double upDelay = par("upDelay");
+        double downDelay = par("downDelay");
 
         // set up tsch
         ietf6TiSCH = check_and_cast<IETF6TiSCH *>(findModuleByPath(par("ietf6TiSCH")));
@@ -31,7 +34,7 @@ void ReqResClient::initialize(int stage) {
         // register to the network coordinator
         ncCore = check_and_cast<NCCore *>(findModuleByPath(par("ncCore")));
 
-        ncCore->registerMN(ietf6TiSCH->myMacAddress, 1 / period, 0, ietf6TiSCH->mobility->currentX, ietf6TiSCH->mobility->currentY, -1);
+        ncCore->registerMN(ietf6TiSCH->myMacAddress, 1 / upPeriod, 1 / downPeriod, upDelay, downDelay, ietf6TiSCH->mobility->currentX, ietf6TiSCH->mobility->currentY, -1);
 
         // set up graphics
         cDisplayString &str = getParentModule()->getDisplayString();
@@ -53,14 +56,14 @@ void ReqResClient::initialize(int stage) {
     } else if (stage == 4) {  // download schedule from manager
         ietf6TiSCH->updateSchedule({ietf6TiSCH->myMacAddress});
 
-        if (period == -1) {
+        if (upPeriod == -1) {
             // use the maximum rate allowed by the scenario
-            period = ietf6TiSCH->schedule->frameLength * TIMESLOT_DURATION_S;
+            upPeriod = ietf6TiSCH->schedule->frameLength * TIMESLOT_DURATION_S;
         }
-        assert(period > 0);
+        assert(upPeriod > 0);
 
         sendBeep = new cMessage("sendBeep");
-        scheduleAt(simTime() + period + uniform(0, period, 0), sendBeep);
+        scheduleAt(simTime() + upPeriod + uniform(0, upPeriod, 0), sendBeep);
 
         seqNum = 0;
     }
@@ -85,9 +88,9 @@ void ReqResClient::handleMessage(cMessage *msg) {
         send(netPkt, "lowerLayerOut");
         emit(packetsSent, 1);
 
-        scheduleAt(simTime() + period, sendBeep);
+        scheduleAt(simTime() + upPeriod, sendBeep);
     } else {
-        ReqResPkt *pkt = check_and_cast<ReqResPkt *>(((cPacket*)msg)->decapsulate());
+        ReqResPkt *pkt = check_and_cast<ReqResPkt *>(((cPacket *)msg)->decapsulate());
         emit(packetsReceived, 1);
         emit(packetsDelay, simTime() - pkt->getUpSendTime());
         emit(packetsDownstreamDelay, simTime() - pkt->getDownSendTime());

@@ -15,8 +15,21 @@
 
 #include "SchedulingFunctionBase.h"
 
+
+#include <algorithm>
+
 // Define_Module(SchedulingFunctionBase);
 
 void SchedulingFunctionBase::initialize() {}
 
 void SchedulingFunctionBase::handleMessage(cMessage *msg) {}
+
+int SchedulingFunctionBase::coprime(int n, int C, int s) {
+    int i = n;
+    while (true) {
+        if (__gcd(i, C) == 1) {
+            return i;
+        }
+        i += s;
+    }
+}

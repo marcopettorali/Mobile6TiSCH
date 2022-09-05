@@ -18,7 +18,11 @@ import mobile6tisch.application.IApplication;
 
 simple ReqResClient like IApplication{
     parameters:
-        double period @unit(s) = default(1s);
+        double upPeriod @unit(s) = default(1s);
+        double downPeriod @unit(s) = default(1s);
+        double upDelay @unit(s) = default(1s);
+        double downDelay @unit(s) = default(1s);
+        
         string ietf6TiSCH = default("^.ietf6TiSCH");
         string ncCore = default("^.^.nc.ncCore");
 
