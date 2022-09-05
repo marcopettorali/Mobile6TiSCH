@@ -51,10 +51,16 @@ class TSCHSchedule {
     bool isAddressPresent(int mn_address);
 
     void printSchedule(ostream& out, bool compact=false) {
+        out << "Slotframe size: " << frameLength << endl;
         for (int i = 0; i < CHANNELS; i++) {
             out << "| ";
             for (int j = 0; j < frameLength; j++) {
                 cell_t* elem = at(j, i);
+                if(elem->tx == NONE_ADDRESS && elem->rx == NONE_ADDRESS) {
+                    out << "   | ";
+                    continue;
+                }
+                
                 if(compact){out << (elem->tx > elem->rx ? elem->tx : -elem->rx);}
                 else{out << "(" << elem->tx << "," << elem->rx << ")";}
                 out << "| ";

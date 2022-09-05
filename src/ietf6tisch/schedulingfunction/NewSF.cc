@@ -183,7 +183,7 @@ TSCHSchedule* NewSF::getSchedule() {
         double minDownDelay = *std::min_element(downDelay, downDelay + numMN);
         double minDelay = std::min(minUpDelay, minDownDelay);
 
-        int frameLength = coprime((int)floor(minDelay / TIMESLOT_DURATION_S), 16);
+        int frameLength = coprime((int)floor(minDelay / TIMESLOT_DURATION_S), 16, -1);
 
         // 2. Schedulability test
 
