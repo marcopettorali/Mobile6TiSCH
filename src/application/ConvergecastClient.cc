@@ -22,10 +22,10 @@ void ConvergecastClient::initialize(int stage) {
 
     if (stage == 2) {  // retrieve basic info for the mobile node
 
-        double upPeriod = par("upPeriod");
-        double downPeriod = par("downPeriod");
-        double upDelay = par("upDelay");
-        double downDelay = par("downDelay");
+        upPeriod = par("upPeriod");
+        downPeriod = par("downPeriod");
+        upDelay = par("upDelay");
+        downDelay = par("downDelay");
 
         // set up tsch
         ietf6TiSCH = check_and_cast<IETF6TiSCH *>(findModuleByPath(par("ietf6TiSCH")));

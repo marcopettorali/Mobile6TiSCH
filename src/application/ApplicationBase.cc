@@ -18,12 +18,6 @@
 Define_Module(ApplicationBase);
 
 void ApplicationBase::initialize(int stage) {
-    if (stage == 0) {
-        // setup statistics
-        packetsSent = registerSignal("packetsSent");
-        packetsReceived = registerSignal("packetsReceived");
-        packetsDelay = registerSignal("packetsDelay");
-    }
 }
 
 void ApplicationBase::handleMessage(cMessage *msg) {

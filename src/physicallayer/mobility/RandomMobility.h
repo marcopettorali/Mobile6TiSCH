@@ -27,16 +27,15 @@ using namespace omnetpp;
  */
 class RandomMobility: public MobilityBase {
     cMessage *move_beep;
-    double speedMin, speedMax;
+    double speed;
     int nextX, nextY;
     double speedX, speedY;
+    double speedInterval;
 
 protected:
     virtual void initialize(int stage) override;
     virtual void handleMessage(cMessage *msg) override;
 
-public:
-    double speed;
 };
 
 #endif

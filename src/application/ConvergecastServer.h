@@ -28,7 +28,7 @@ class ConvergecastServer : public ApplicationBase {
     simsignal_t packetsDelay;
 
    protected:
-    virtual void initialize() override;
+    virtual void initialize(int stage) override;
     virtual void handleMessage(cMessage *msg) override;
 };
 

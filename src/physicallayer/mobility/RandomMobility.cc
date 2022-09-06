@@ -24,11 +24,12 @@ void RandomMobility::initialize(int stage) {
         this->nextX = intuniform(0, areaWidth, 1);
         this->nextY = intuniform(0, areaHeight, 1);
 
-        this->speedMin = par("speedMin");
-        this->speedMax = par("speedMax");
+        this->speed = par("speed");
+        this->speedInterval = par("speedInterval");
+        if(speedInterval == -1) speedInterval = 2 * speed;
 
         // choose a random speed
-        speed = uniform(speedMin, speedMax, 2);
+        speed = uniform(speed - speedInterval/2, speed + speedInterval / 2, 2);
         speedX = speed * (nextX - startX) / sqrt(pow(nextX - startX, 2) + pow(nextY - startY, 2)) * updatePositionInterval;
         speedY = speed * (nextY - startY) / sqrt(pow(nextX - startX, 2) + pow(nextY - startY, 2)) * updatePositionInterval;
 
@@ -45,8 +46,7 @@ void RandomMobility::handleMessage(cMessage *msg) {
             nextX = intuniform(0, areaWidth, 1);
             nextY = intuniform(0, areaHeight, 1);
 
-            // choose a random speed
-            speed = uniform(speedMin, speedMax, 2);
+            speed = uniform(speed - speedInterval/2, speed + speedInterval / 2, 2);
             speedX = speed * (nextX - currentX) / DIST(nextX, nextY, currentX, currentY) * updatePositionInterval;
             speedY = speed * (nextY - currentY) / DIST(nextX, nextY, currentX, currentY) * updatePositionInterval;
         }

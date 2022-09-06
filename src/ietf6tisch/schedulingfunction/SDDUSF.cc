@@ -17,18 +17,17 @@
 
 #include <math.h>
 
-
 Define_Module(SDDUSF);
 
 void SDDUSF::initialize() {
     SchedulingFunctionBase::initialize();
-    downloadFromNC = (bool)par("downloadFromNC");
+    downloadFromNC = (bool) par("downloadFromNC");
     ncCore = check_and_cast<NCCore*>(findModuleByPath(par("ncCore")));
 
     groupSize = par("groupSize");
 }
 
-void SDDUSF::handleMessage(cMessage* msg) {
+void SDDUSF::handleMessage(cMessage *msg) {
     // TODO - Generated method body
 }
 
@@ -39,17 +38,18 @@ TSCHSchedule* SDDUSF::getSchedule() {
         int numMN = ncCore->getNumMNs();
 
         // determine frameLength
-        int frameLength = coprime(1 + ceil((double)numMN / groupSize) + numMN, groupSize);
+        int frameLength = coprime(1 + ceil((double) numMN / groupSize) + numMN,
+                groupSize);
 
         // initialize schedule of size frameLength
-        TSCHSchedule* sf = new TSCHSchedule(frameLength);
+        TSCHSchedule *sf = new TSCHSchedule(frameLength);
 
         // put shared cells in the first timeslot
         sf->update(0, 0, MN_BROADCAST_DOMAIN, BR_BROADCAST_DOMAIN, true);
 
         // determine first upstream and downstream cells
         int nextUpCh = 0;
-        int nextUpSlot = 1 + ceil((double)numMN / groupSize);
+        int nextUpSlot = 1 + ceil((double) numMN / groupSize);
 
         int nextDownCh = 0;
         int nextDownSlot = 1;
@@ -59,17 +59,28 @@ TSCHSchedule* SDDUSF::getSchedule() {
             int macAddress = ncCore->getMNs()[i].macAddress;
 
             // allocate up cell
-            sf->update(nextUpSlot, nextUpCh, macAddress, BR_BROADCAST_DOMAIN, false);
+            sf->update(nextUpSlot, nextUpCh, macAddress, BR_BROADCAST_DOMAIN,
+                    false);
             nextUpSlot++;
             nextUpCh = 0;
 
             // allocate down cell
-            sf->update(nextDownSlot, nextDownCh, BR_BROADCAST_DOMAIN, macAddress, false);
-            nextDownCh = (nextDownCh + 1) % groupSize;
-            if (nextDownCh == 0) {
+            sf->update(nextDownSlot, nextDownCh, BR_BROADCAST_DOMAIN,
+                    macAddress, false);
+
+            if (groupSize > 1) { //SDDU
+
+                nextDownCh = (nextDownCh + 1) % groupSize;
+                if (nextDownCh == 0) {
+                    nextDownSlot++;
+                }
+            } else if (groupSize == 1) { // DDDU
+                nextDownCh = 0;
                 nextDownSlot++;
             }
         }
+
         return sf;
     }
 }
+

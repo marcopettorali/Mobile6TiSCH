@@ -19,6 +19,7 @@ moduleinterface IMobility{
     parameters:
         double startX @unit(m);
         double startY @unit(m);
+        double speed @unit(mps);
         double areaWidth @unit(m);
         double areaHeight @unit(m);
         double updatePositionInterval @unit(s);

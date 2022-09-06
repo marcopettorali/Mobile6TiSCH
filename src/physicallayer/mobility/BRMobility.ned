@@ -19,6 +19,7 @@ import mobile6tisch.physicallayer.mobility.IMobility;
 simple BRMobility like IMobility{
     double startX @unit(m) = default(0m);
     double startY @unit(m) = default(0m);
+    double speed @unit(mps) = 0mps;
     double areaWidth @unit(m);
     double areaHeight @unit(m);
     double updatePositionInterval @unit(s) = default(0.5s);
@@ -28,6 +29,6 @@ simple BRMobility like IMobility{
 
     double intFlowersAlpha = default(1);
 
-    string listBasedPos = "";
+    string listBasedPos = default("");
     @display("i=block/cogwheel,,0");
 }

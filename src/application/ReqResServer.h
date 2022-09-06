@@ -30,7 +30,7 @@ class ReqResServer : public ApplicationBase {
     simsignal_t packetsDelay;
     simsignal_t packetsUpstreamDelay;
    protected:
-    virtual void initialize() override;
+    virtual void initialize(int stage) override;
     virtual void handleMessage(cMessage *msg) override;
 };
 

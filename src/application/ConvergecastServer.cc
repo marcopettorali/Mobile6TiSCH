@@ -17,7 +17,8 @@
 
 Define_Module(ConvergecastServer);
 
-void ConvergecastServer::initialize() {
+void ConvergecastServer::initialize(int stage) {
+    ApplicationBase::initialize(stage);
     packetsReceived = registerSignal("packetsReceived");
     packetsDelay = registerSignal("packetsDelay");
 }
@@ -28,7 +29,7 @@ void ConvergecastServer::handleMessage(cMessage *msg) {
     EV << "Received upstream packet " << pkt->getSeqNum() << endl;
 
     emit(packetsReceived, 1);
-    emit(packetsDelay, simTime() - pkt->getSendTime());
+    emit(packetsDelay, (simTime() - pkt->getSendTime()));
 
     delete pkt;
 }

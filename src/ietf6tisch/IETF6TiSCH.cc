@@ -62,6 +62,7 @@ void IETF6TiSCH::handleMessage(cMessage *msg) {
             if (areRetransmissionsEnabled) {
                 radio->setRadioMode(RadioMode::RX);
             }
+            delete msg;
         }
     } else if (msg->getArrivalGate() == gate("lowerLayerIn")) {  // from network
         IETF6TiSCHPkt *tschPkt = check_and_cast<IETF6TiSCHPkt*>(msg);

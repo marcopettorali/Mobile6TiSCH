@@ -22,6 +22,7 @@ simple StaticMobility like IMobility{
     // implemented attributes
     double startX @unit(m);
     double startY @unit(m);
+    double speed @unit(mps) = 0mps;
     double areaWidth @unit(m);
     double areaHeight @unit(m);
     double updatePositionInterval @unit(s) = default(0.5s);

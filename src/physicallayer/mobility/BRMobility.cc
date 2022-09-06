@@ -15,6 +15,8 @@
 
 #include "BRMobility.h"
 
+#include <string.h>
+
 Define_Module(BRMobility);
 
 std::vector<point_t> parseCustomBrPositions(const char *s);
@@ -105,8 +107,9 @@ void BRMobility::intersectingFlowers() {
 }
 
 void BRMobility::listBased() {
-    std::vector<point_t> positions = parseCustomBrPositions(
-            par("listBasedPos"));
+    const char* s = par("listBasedPos");
+    EV << s << endl;
+    std::vector<point_t> positions = parseCustomBrPositions(s);
     currentX = positions[brId].x;
     currentY = positions[brId].y;
 }

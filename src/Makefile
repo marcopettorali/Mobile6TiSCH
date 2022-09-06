@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for Mobile6TiSCH
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I/usr/local/lib/ortools/include -L/usr/local/lib/ortools/lib -lortools
+#  opp_makemake -f --deep -I/usr/local/lib/ortools/include -I/usr/local/lib/ortools/include -L/usr/local/lib/ortools/lib -lortools
 #
 
 # Name of target to be created (-o option)
@@ -19,7 +19,7 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(QTENV_LIBS) $(CMDENV_LIBS)
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -I/usr/local/lib/ortools/include
+INCLUDE_PATH = -I/usr/local/lib/ortools/include -I/usr/local/lib/ortools/include
 
 # Additional object and library files to link with
 EXTRA_OBJS =

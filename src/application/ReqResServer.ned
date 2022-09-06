@@ -25,10 +25,6 @@ simple ReqResServer like IApplication{
         @signal[packetsDelay](type=simtime_t);
         @statistic[stats_packetsDelay](source="packetsDelay"; record=vector; );
 
-        // new statistics
-        @signal[packetsUpstreamDelay](type=simtime_t);
-        @statistic[stats_packetsUpstreamDelay](source="packetsUpstreamDelay"; record=vector; );
-
     gates:
         input lowerLayerIn;
         output lowerLayerOut;

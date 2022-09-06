@@ -17,18 +17,18 @@
 
 Define_Module(ReqResServer);
 
-void ReqResServer::initialize() {
+void ReqResServer::initialize(int stage) {
+    ApplicationBase::initialize(stage);
     packetsSent = registerSignal("packetsSent");
     packetsReceived = registerSignal("packetsReceived");
     packetsDelay = registerSignal("packetsDelay");
-    packetsUpstreamDelay = registerSignal("packetsUpstreamDelay");
 }
 
 void ReqResServer::handleMessage(cMessage *msg) {
     ReqResPkt *pkt = check_and_cast<ReqResPkt *>(msg);
 
     emit(packetsReceived, 1);
-    emit(packetsUpstreamDelay, simTime() - pkt->getUpSendTime());
+    emit(packetsDelay, simTime() - pkt->getUpSendTime());
 
     // send it back
     pkt->setDownSendTime(simTime());
@@ -37,6 +37,8 @@ void ReqResServer::handleMessage(cMessage *msg) {
     backPkt->setMobileNode(pkt->getSenderMACAddress());
     
     send(backPkt, "lowerLayerOut");
+
+    emit(packetsSent, 1);
 
     EV << "Received upstream packet" << endl;
 
