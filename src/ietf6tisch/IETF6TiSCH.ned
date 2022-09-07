@@ -37,7 +37,7 @@ simple IETF6TiSCH
         @statistic[stats_stagesMN](source="stagesMN"; record=vector; );
 
         @signal[queueSize](type=long);
-        @statistic[stats_queueSize](source="queueSize"; record=timeavg; );
+        @statistic[stats_queueSize](source="queueSize"; record=vector; );
 
         @signal[packetsDropped](type=long);
         @statistic[stats_packetsDropped](source="packetsDropped"; record=count; );

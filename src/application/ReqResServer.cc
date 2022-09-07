@@ -34,6 +34,7 @@ void ReqResServer::handleMessage(cMessage *msg) {
     pkt->setDownSendTime(simTime());
 
     BackbonePkt *backPkt = new BackbonePkt();
+    backPkt->encapsulate(pkt);
     backPkt->setMobileNode(pkt->getSenderMACAddress());
     
     send(backPkt, "lowerLayerOut");
@@ -42,6 +43,4 @@ void ReqResServer::handleMessage(cMessage *msg) {
 
     EV << "Received upstream packet" << endl;
 
-
-    delete pkt;
 }

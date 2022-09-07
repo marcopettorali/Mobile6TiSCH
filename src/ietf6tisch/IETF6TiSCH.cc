@@ -102,6 +102,7 @@ void IETF6TiSCH::handleMessage(cMessage *msg) {
             //cPacket *appPkt = netPkt->decapsulate();
             netPkt->setControlInfo(tschPkt->removeControlInfo());
             send(netPkt, "upperLayerOut");
+            
 
         }
         delete tschPkt;
@@ -109,6 +110,7 @@ void IETF6TiSCH::handleMessage(cMessage *msg) {
         NetworkLayerPkt *netPkt = check_and_cast<NetworkLayerPkt*>(msg);
         IETF6TiSCHPkt *tschPkt = encapsulateIn6TiSCHPacket(netPkt);
         schedulePacket(tschPkt);
+        EV << "Downstream packet scheduled" << endl;
     }
 }
 
@@ -227,7 +229,7 @@ void IETF6TiSCH::sendToLowerLayer(IETF6TiSCHPkt *tschPkt) {
 IETF6TiSCHPkt* IETF6TiSCH::encapsulateIn6TiSCHPacket(NetworkLayerPkt *netPkt) {
     IETF6TiSCHPkt *tschPkt = new IETF6TiSCHPkt();
     tschPkt->setByteLength(netPkt->getByteLength());
-    tschPkt->setSrc(myMacAddress);
+    tschPkt->setSrc(netPkt->getSrc());
     tschPkt->setDest(netPkt->getDest());  // implement IP resolution
     tschPkt->setSeqNum(netPkt->getSeq());
     tschPkt->encapsulate(netPkt);

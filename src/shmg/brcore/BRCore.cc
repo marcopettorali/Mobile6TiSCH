@@ -41,14 +41,16 @@ void BRCore::handleMessage(cMessage *msg) {
 void BRCore::handleBackboneCommand(cMessage* msg) {
     EV << ietf6TiSCH->myMacAddress << ": Received downstream packet" << endl;
 
-    BackbonePkt* pkt = check_and_cast<BackbonePkt*>(msg);
+    BackbonePkt* pkt = check_and_cast<BackbonePkt*>(msg);  
     NetworkLayerPkt* netPkt = new NetworkLayerPkt("netPkt");
     
     netPkt->setSrc(BR_BROADCAST_DOMAIN);
     netPkt->setDest(pkt->getMobileNode());
     netPkt->setSeq(-1);
     netPkt->setByteLength(pkt->getByteLength());
-    netPkt->encapsulate(pkt);
+    netPkt->encapsulate(pkt->decapsulate());
+
+    delete pkt;
 
     send(netPkt, "lowerLayer6TiSCHOut");
 }

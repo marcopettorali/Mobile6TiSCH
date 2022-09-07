@@ -233,7 +233,7 @@ void Radio::setRadioMode(RadioMode status) {
         deltaPower = 0;
     }
 
-    //emit(averagePowerConsumptionSignal, deltaPower);
+    emit(averagePowerConsumptionSignal, deltaPower);
     currentMode = status;
 }
 
