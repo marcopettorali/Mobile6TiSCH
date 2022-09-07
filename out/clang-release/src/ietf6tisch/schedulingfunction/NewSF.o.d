@@ -1,7 +1,7 @@
 ../out/clang-release/src/ietf6tisch/schedulingfunction/NewSF.o: \
   ietf6tisch/schedulingfunction/NewSF.cc \
   ietf6tisch/schedulingfunction/NewSF.h \
-  /home/marco/omnetpp-6.0/include/omnetpp.h \
+  /home/ubuntu/omnetpp-6.0/include/omnetpp.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/NCCore.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/NetworkLayerPkt_m.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/schedulingfunction/SchedulingFunctionBase.h \
@@ -10,7 +10,7 @@
   ietf6tisch/schedulingfunction/../../shmg/nccore/../brcore/BRCore.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/../brcore/../../ietf6tisch/IETF6TiSCH.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/../physicallayer/mobility/MobilityBase.h \
-  /home/marco/omnetpp-6.0/include/omnetpp/csimplemodule.h \
+  /home/ubuntu/omnetpp-6.0/include/omnetpp/csimplemodule.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/../physicallayer/radio/Radio.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/../physicallayer/radio/GlobalRadioRegister.h \
   ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/../physicallayer/radio/SignalDescriptor_m.h \
@@ -215,7 +215,7 @@
 
 ietf6tisch/schedulingfunction/NewSF.h:
 
-/home/marco/omnetpp-6.0/include/omnetpp.h:
+/home/ubuntu/omnetpp-6.0/include/omnetpp.h:
 
 ietf6tisch/schedulingfunction/../../shmg/nccore/NCCore.h:
 
@@ -233,7 +233,7 @@ ietf6tisch/schedulingfunction/../../shmg/nccore/../brcore/../../ietf6tisch/IETF6
 
 ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/../physicallayer/mobility/MobilityBase.h:
 
-/home/marco/omnetpp-6.0/include/omnetpp/csimplemodule.h:
+/home/ubuntu/omnetpp-6.0/include/omnetpp/csimplemodule.h:
 
 ietf6tisch/schedulingfunction/../../shmg/nccore/../../ietf6tisch/../physicallayer/radio/Radio.h:
 
