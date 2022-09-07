@@ -41,6 +41,7 @@ void BRMobility::initialize(int stage) {
         cDisplayString &str = getParentModule()->getDisplayString();
         str.setTagArg("p", 0, currentX);
         str.setTagArg("p", 1, currentY);
+        str.setTagArg("r", 0, targetCommunicationRadius);
 
     }
 }

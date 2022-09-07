@@ -1,8 +1,8 @@
 ../out/clang-debug/src/shmg/brcore/BRCore.o: shmg/brcore/BRCore.cc \
-  shmg/brcore/BRCore.h /home/marco/omnetpp-6.0/include/omnetpp.h \
+  shmg/brcore/BRCore.h /home/ubuntu/omnetpp-6.0/include/omnetpp.h \
   shmg/brcore/../../ietf6tisch/IETF6TiSCH.h \
   shmg/brcore/../../ietf6tisch/../physicallayer/mobility/MobilityBase.h \
-  /home/marco/omnetpp-6.0/include/omnetpp/csimplemodule.h \
+  /home/ubuntu/omnetpp-6.0/include/omnetpp/csimplemodule.h \
   shmg/brcore/../../ietf6tisch/../physicallayer/radio/Radio.h \
   shmg/brcore/../../ietf6tisch/../physicallayer/radio/GlobalRadioRegister.h \
   shmg/brcore/../../ietf6tisch/../physicallayer/radio/SignalDescriptor_m.h \
@@ -25,13 +25,13 @@
 
 shmg/brcore/BRCore.h:
 
-/home/marco/omnetpp-6.0/include/omnetpp.h:
+/home/ubuntu/omnetpp-6.0/include/omnetpp.h:
 
 shmg/brcore/../../ietf6tisch/IETF6TiSCH.h:
 
 shmg/brcore/../../ietf6tisch/../physicallayer/mobility/MobilityBase.h:
 
-/home/marco/omnetpp-6.0/include/omnetpp/csimplemodule.h:
+/home/ubuntu/omnetpp-6.0/include/omnetpp/csimplemodule.h:
 
 shmg/brcore/../../ietf6tisch/../physicallayer/radio/Radio.h:
 

@@ -75,7 +75,7 @@ class IETF6TiSCH : public cSimpleModule {
     /*UTILITY*/
     void startTSCHSchedule();
     void switchRadioMode(RadioMode status);
-    void switchRadioFrequency(int channel);
+    void switchRadioFrequency(long long channel);
 
     IETF6TiSCHPkt* encapsulateIn6TiSCHPacket(NetworkLayerPkt *netPkt);
     RadioPkt *encapsulateInRadioPkt(IETF6TiSCHPkt *tschPkt);

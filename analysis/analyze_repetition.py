@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/home/marco/omnetpp-6.0/python")
+sys.path.append("/home/ubuntu/omnetpp-6.0/python")
 
 import pandas as pd
 
@@ -32,7 +32,7 @@ def compute_mean_avgvarperc(listoflist):
     return stats_util.s_mean_value(avgs), stats_util.s_mean_value(vars), stats_util.s_mean_value(perc95s)
 
 def analyze_repetition(rep_name):
-
+    
     ret = {}
 
     scalars = results.read_result_files(rep_name + ".sca")
@@ -108,7 +108,9 @@ def analyze_repetition(rep_name):
     ret["queue_size_br_var"] = var
     ret["queue_size_br_perc95"] = perc95
 
+    print(rep_name, ret["upstream_pdr"])
+
     return ret
 
 if __name__ == "__main__":
-    print(analyze_repetition("simulations/results/test-10,StaticMobility-#0"))
+    print(analyze_repetition("/media/hdisk/test/test-20,StaticMobility-#24"))

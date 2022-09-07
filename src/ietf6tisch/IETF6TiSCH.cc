@@ -130,6 +130,7 @@ void IETF6TiSCH::onScheduleBeep() {
 
     cell_t cell = schedule->getAction(EV, this->asn, myMacAddress,
             broadcastDomain, 0, &globalQueue);
+    //EV << "CELLCH " << cell.channel << endl;
 
     if ((cell.tx == myMacAddress || cell.tx == broadcastDomain)
             && cell.scheduled_msg != NULL) {
@@ -189,9 +190,8 @@ void IETF6TiSCH::switchRadioMode(RadioMode status) {
     radio->setRadioMode(status);
 }
 
-void IETF6TiSCH::switchRadioFrequency(int channel) {
-    long long frequency = baseFrequency
-            + baseBandwidth * ((asn + channel) % CHANNELS);
+void IETF6TiSCH::switchRadioFrequency(long long channel) {
+    long long frequency = channel;//baseFrequency + baseBandwidth * ((asn + channel) % CHANNELS);
     radio->setCarrierFrequency(frequency);
 }
 

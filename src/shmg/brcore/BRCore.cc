@@ -23,6 +23,8 @@ void BRCore::initialize(int stage) {
         this->ncCore = check_and_cast<NCCore*>(findModuleByPath(par("ncCore")));
         this->brId = getParentModule()->par("brId");
 
+
+
         ncCore->registerBR(ietf6TiSCH->myMacAddress, brId, this, ietf6TiSCH->mobility->currentX, ietf6TiSCH->mobility->currentY, ietf6TiSCH->mobility->par("targetCommunicationRadius").doubleValue());
     }else if (stage == 4){
         ietf6TiSCH->updateSchedule({});

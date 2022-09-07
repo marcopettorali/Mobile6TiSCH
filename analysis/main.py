@@ -5,9 +5,9 @@ import sys
 def main(folder):
     # list all .sca in folder
     for file in os.listdir(folder):
-        if file.endswith(".sca"):
-            # remove .sca
-            scenario = file[:-4]
+        if file.endswith("-#0.sca"):
+            # remove -#0.sca
+            scenario = file[:-7]
             analyze_scenario(folder + "/" + scenario)
 
 if __name__=="__main__":

@@ -39,7 +39,7 @@ simple Radio{
         double rxPowerMW @unit(mW) = default(56.4mW);
         double txPowerMW @unit(mW) = default(52.2mW);
 
-        @signal[averagePowerConsumption](type=long);
+        @signal[averagePowerConsumption](type=double);
         @statistic[stats_averagePowerConsumption](source="averagePowerConsumption"; record=timeavg; );
 
         @display("i=block/wrxtx,,0");

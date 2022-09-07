@@ -1,9 +1,9 @@
 ../out/clang-debug/src/application/ReqResClient.o: \
   application/ReqResClient.cc application/ReqResClient.h \
-  /home/marco/omnetpp-6.0/include/omnetpp.h \
+  /home/ubuntu/omnetpp-6.0/include/omnetpp.h \
   application/../ietf6tisch/IETF6TiSCH.h \
   application/../ietf6tisch/../physicallayer/mobility/MobilityBase.h \
-  /home/marco/omnetpp-6.0/include/omnetpp/csimplemodule.h \
+  /home/ubuntu/omnetpp-6.0/include/omnetpp/csimplemodule.h \
   application/../ietf6tisch/../physicallayer/radio/Radio.h \
   application/../ietf6tisch/../physicallayer/radio/GlobalRadioRegister.h \
   application/../ietf6tisch/../physicallayer/radio/SignalDescriptor_m.h \
@@ -29,13 +29,13 @@
 
 application/ReqResClient.h:
 
-/home/marco/omnetpp-6.0/include/omnetpp.h:
+/home/ubuntu/omnetpp-6.0/include/omnetpp.h:
 
 application/../ietf6tisch/IETF6TiSCH.h:
 
 application/../ietf6tisch/../physicallayer/mobility/MobilityBase.h:
 
-/home/marco/omnetpp-6.0/include/omnetpp/csimplemodule.h:
+/home/ubuntu/omnetpp-6.0/include/omnetpp/csimplemodule.h:
 
 application/../ietf6tisch/../physicallayer/radio/Radio.h:
 

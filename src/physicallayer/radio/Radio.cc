@@ -124,9 +124,10 @@ void Radio::handleLowerPacket(RadioPkt *pkt) {
         EV << myMACAddress << ": Received packet with RSSI " << rssiDBM << " dBm, less than threshold " << rssiThreshold << " dBm, discarding packet." << endl;
 
     } else if (bandwidth != desc->getBandwidth() || carrierFrequency != desc->getCarrierFrequency()) {
+        EV << myMACAddress << ": Received packet with different bandwidth or carrier frequency ("<<carrierFrequency << " " << desc->getCarrierFrequency()<<"), discarding packet." << endl;
+
         delete desc;
         delete pkt;
-        EV << myMACAddress << ": Received packet with different bandwidth or carrier frequency, discarding packet." << endl;
 
     } else if (ingoingPacketBuffer != NULL) {
         noisePower += rssi;
@@ -237,7 +238,8 @@ void Radio::setRadioMode(RadioMode status) {
     currentMode = status;
 }
 
-void Radio::setCarrierFrequency(long long frequency) { carrierFrequency = frequency; }
+void Radio::setCarrierFrequency(long long frequency) { //EV << "SETFREQ " << frequency << endl;
+carrierFrequency = frequency; }
 
 void Radio::setBandwidth(double band) { bandwidth = band; }
 
