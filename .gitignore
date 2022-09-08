@@ -1,2 +1,5 @@
 simulations/results
 out
+src/ietf6tisch/schedulingfunction/NewSF.ned
+src/ietf6tisch/schedulingfunction/NewSF.cc
+src/ietf6tisch/schedulingfunction/NewSF.h
