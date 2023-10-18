@@ -1,1 +1,0 @@
-opp_runall -j 24 ../src/Mobile6TiSCH -m -u Cmdenv -c test -n ../src:. omnetpp.ini
