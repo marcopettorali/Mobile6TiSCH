@@ -16,8 +16,6 @@ Mobile6TiSCH can be used to evaluate different solutions in a simulated environm
 
 <img width="949" alt="image" src="https://user-images.githubusercontent.com/18681585/191434837-291830a6-bc48-410d-acb7-37f09ad29a18.png">
 
-# Installation
-
 ## Migration from Mobile6TiSCH-legacy
 
 Mobile6TiSCH is a revised version of Mobile6TiSCH-legacy, which is still available at https://github.com/marcopettorali/Mobile6TiSCH/tree/legacy.
