@@ -1,13 +1,13 @@
 #
-# OMNeT++/OMNEST Makefile for Mobile6TiSCH-3-0-Chester
+# OMNeT++/OMNEST Makefile for Mobile6TiSCH
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I. -I../or-tools/include -L../or-tools/lib -lortools -e cc
+#  opp_makemake -f --deep -I. -I../or-tools/include -e cc -o Mobile6TiSCH
 #
 
 # Name of target to be created (-o option)
 TARGET_DIR = .
-TARGET_NAME = Mobile6TiSCH-3-0-Chester$(D)
+TARGET_NAME = Mobile6TiSCH$(D)
 TARGET = $(TARGET_NAME)$(EXE_SUFFIX)
 TARGET_IMPLIB = $(TARGET_NAME)$(IMPLIB_SUFFIX)
 TARGET_IMPDEF = $(TARGET_NAME)$(IMPDEF_SUFFIX)
@@ -25,11 +25,11 @@ INCLUDE_PATH = -I. -I../or-tools/include
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = $(LDFLAG_LIBPATH)../or-tools/lib  -lortools
+LIBS =
 
 # Output directory
-PROJECT_OUTPUT_DIR = ../out
-PROJECTRELATIVE_PATH = src
+PROJECT_OUTPUT_DIR = ../../out
+PROJECTRELATIVE_PATH = Mobile6TiSCH/src
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
@@ -51,23 +51,14 @@ OBJS = \
     $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/alice/ALICE.o \
     $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/amus/AMUS.o \
     $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/dummysf/DummySF.o \
-    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/lasa/LASA.o \
-    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/lasa/MCS.o \
-    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/lasa/lasar/LASAR.o \
     $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/orchestra/Orchestra.o \
     $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/sddu/SDDU.o \
     $O/middleware/base/MiddlewareBase.o \
     $O/middleware/shmg/brmiddleware/base/BRMiddlewareBase.o \
-    $O/middleware/shmg/brmiddleware/lasa/LASABRMiddleware.o \
-    $O/middleware/shmg/brmiddleware/lasa/lasar/LASARBRMiddleware.o \
     $O/middleware/shmg/mnmiddleware/base/MNMiddlewareBase.o \
-    $O/middleware/shmg/mnmiddleware/lasa/LASAMNMiddleware.o \
-    $O/middleware/shmg/mnmiddleware/lasa/lasar/LASARMNMiddleware.o \
     $O/middleware/shmg/ncmiddleware/base/DedupTable.o \
     $O/middleware/shmg/ncmiddleware/base/NCMiddlewareBase.o \
     $O/middleware/shmg/ncmiddleware/base/RSSITable.o \
-    $O/middleware/shmg/ncmiddleware/lasa/LASANCMiddleware.o \
-    $O/middleware/shmg/ncmiddleware/lasa/lasar/LASARNCMiddleware.o \
     $O/mobility/base/MobilityBase.o \
     $O/mobility/brmobility/BRMobility.o \
     $O/mobility/linearmobility/LinearMobility.o \
@@ -83,7 +74,6 @@ OBJS = \
     $O/utils/point/Point.o \
     $O/utils/point/Polygon.o \
     $O/utils/point/Segment.o \
-    $O/utils/shmg/lasa/LASAUtils.o \
     $O/applications/convergecast/ConvergecastPkt_m.o \
     $O/applications/reqres/ReqResPkt_m.o \
     $O/linklayer/ieee802154tsch/IEEE802154TSCHAck_m.o \
@@ -91,8 +81,6 @@ OBJS = \
     $O/middleware/shmg/messages/BackboneCommand_m.o \
     $O/middleware/shmg/messages/BackboneDataInfo_m.o \
     $O/middleware/shmg/messages/SHMGNetworkPkt_m.o \
-    $O/middleware/shmg/messages/lasa/LASANetworkPkt_m.o \
-    $O/middleware/shmg/messages/lasa/lasar/ScheduleUpdate_m.o \
     $O/physicallayer/radio/base/RadioPkt_m.o \
     $O/physicallayer/radio/base/SignalDescriptor_m.o \
     $O/physicallayer/wired/base/WiredNICPkt_m.o
@@ -106,8 +94,6 @@ MSGFILES = \
     middleware/shmg/messages/BackboneCommand.msg \
     middleware/shmg/messages/BackboneDataInfo.msg \
     middleware/shmg/messages/SHMGNetworkPkt.msg \
-    middleware/shmg/messages/lasa/LASANetworkPkt.msg \
-    middleware/shmg/messages/lasa/lasar/ScheduleUpdate.msg \
     physicallayer/radio/base/RadioPkt.msg \
     physicallayer/radio/base/SignalDescriptor.msg \
     physicallayer/wired/base/WiredNICPkt.msg
@@ -133,9 +119,6 @@ include $(CONFIGFILE)
 
 # Simulation kernel and user interface libraries
 OMNETPP_LIBS = $(OPPMAIN_LIB) $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
-ifneq ($(PLATFORM),win32)
-LIBS += -Wl,-rpath,$(abspath ../or-tools/lib)
-endif
 
 COPTS = $(CFLAGS) $(IMPORT_DEFINES)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
 MSGCOPTS = $(INCLUDE_PATH)

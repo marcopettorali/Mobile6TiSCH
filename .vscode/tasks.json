@@ -1,0 +1,83 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MakeMake",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/src && opp_makemake -f --deep -I. -I../or-tools/include -e cc -o Mobile6TiSCH",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Configuration test: Build & Run (Release)",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/src && make MODE=release all -j24 && cd ${workspaceFolder}/simulations && ../src/Mobile6TiSCH -m -u Qtenv  -n ../src:. omnetpp.ini",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Build (Debug)",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/src && make MODE=debug -j24",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Build (Release)",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/src && make MODE=release -j$(nproc --all)",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Run config \"test\" without GUI (Release)",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/src && make MODE=release -j$(nproc --all) && cd ${workspaceFolder}/simulations && opp_runall -j$(nproc --all) ../src/Mobile6TiSCH -m -u Cmdenv -c test -n ../src:. omnetpp.ini ",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/src && make clean",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ]
+}
