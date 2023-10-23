@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for Mobile6TiSCH
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I/usr/local/lib/ortools/include -I/usr/local/lib/ortools/include -L/usr/local/lib/ortools/lib -lortools
+#  opp_makemake -f --deep -I. -I../or-tools/include -e cc -o Mobile6TiSCH
 #
 
 # Name of target to be created (-o option)
@@ -19,62 +19,84 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(QTENV_LIBS) $(CMDENV_LIBS)
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -I/usr/local/lib/ortools/include -I/usr/local/lib/ortools/include
+INCLUDE_PATH = -I. -I../or-tools/include
 
 # Additional object and library files to link with
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = $(LDFLAG_LIBPATH)/usr/local/lib/ortools/lib  -lortools
+LIBS =
 
 # Output directory
-PROJECT_OUTPUT_DIR = ../out
-PROJECTRELATIVE_PATH = src
+PROJECT_OUTPUT_DIR = ../../out
+PROJECTRELATIVE_PATH = Mobile6TiSCH/src
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
 OBJS = \
-    $O/application/ApplicationBase.o \
-    $O/application/ConvergecastClient.o \
-    $O/application/ConvergecastServer.o \
-    $O/application/ReqResClient.o \
-    $O/application/ReqResServer.o \
-    $O/ietf6tisch/IETF6TiSCH.o \
-    $O/ietf6tisch/TSCHSchedule.o \
-    $O/ietf6tisch/schedulingfunction/NewSF.o \
-    $O/ietf6tisch/schedulingfunction/SchedulingFunctionBase.o \
-    $O/ietf6tisch/schedulingfunction/SDDUSF.o \
-    $O/physicallayer/mobility/BRMobility.o \
-    $O/physicallayer/mobility/LinearMobility.o \
-    $O/physicallayer/mobility/MobilityBase.o \
-    $O/physicallayer/mobility/RandomMobility.o \
-    $O/physicallayer/mobility/StaticMobility.o \
-    $O/physicallayer/radio/GlobalRadioRegister.o \
-    $O/physicallayer/radio/Radio.o \
-    $O/shmg/backboneprotocol/BackboneProtocol.o \
-    $O/shmg/brcore/BRCore.o \
-    $O/shmg/nccore/DedupTable.o \
-    $O/shmg/nccore/DistanceTable.o \
-    $O/shmg/nccore/NCCore.o \
-    $O/application/ConvergecastPkt_m.o \
-    $O/application/ReqResPkt_m.o \
-    $O/ietf6tisch/IETF6TiSCHAck_m.o \
-    $O/ietf6tisch/IETF6TiSCHPkt_m.o \
-    $O/ietf6tisch/NetworkLayerPkt_m.o \
-    $O/physicallayer/radio/RadioPkt_m.o \
-    $O/physicallayer/radio/SignalDescriptor_m.o \
-    $O/shmg/backboneprotocol/BackbonePkt_m.o
+    $O/applications/base/ApplicationBase.o \
+    $O/applications/convergecast/ConvergecastClient.o \
+    $O/applications/convergecast/ConvergecastServer.o \
+    $O/applications/reqres/ReqResClient.o \
+    $O/applications/reqres/ReqResServer.o \
+    $O/common/basemodule/BaseModule.o \
+    $O/common/crosslayerdb/CrossLayerDB.o \
+    $O/common/statscollector/StatsCollector.o \
+    $O/environment/base/EnvironmentManagerBase.o \
+    $O/linklayer/base/LinkLayerBase.o \
+    $O/linklayer/ieee802154tsch/IEEE802154TSCH.o \
+    $O/linklayer/ieee802154tsch/IEEE802154TSCHSchedule.o \
+    $O/linklayer/ieee802154tsch/schedulingfunction/base/SchedulingFunctionBase.o \
+    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/CentralizedSF.o \
+    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/alice/ALICE.o \
+    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/amus/AMUS.o \
+    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/dummysf/DummySF.o \
+    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/orchestra/Orchestra.o \
+    $O/linklayer/ieee802154tsch/schedulingfunction/shmg/centralized/sddu/SDDU.o \
+    $O/middleware/base/MiddlewareBase.o \
+    $O/middleware/shmg/brmiddleware/base/BRMiddlewareBase.o \
+    $O/middleware/shmg/mnmiddleware/base/MNMiddlewareBase.o \
+    $O/middleware/shmg/ncmiddleware/base/DedupTable.o \
+    $O/middleware/shmg/ncmiddleware/base/NCMiddlewareBase.o \
+    $O/middleware/shmg/ncmiddleware/base/RSSITable.o \
+    $O/mobility/base/MobilityBase.o \
+    $O/mobility/brmobility/BRMobility.o \
+    $O/mobility/linearmobility/LinearMobility.o \
+    $O/mobility/randommobility/RandomMobility.o \
+    $O/mobility/staticmobility/StaticMobility.o \
+    $O/physicallayer/radio/base/GlobalRadioRegister.o \
+    $O/physicallayer/radio/base/RadioBase.o \
+    $O/physicallayer/wired/base/WiredNICBase.o \
+    $O/sensors/base/SensorBase.o \
+    $O/sensors/orientation/OrientationSensor.o \
+    $O/sensors/position/PositionSensor.o \
+    $O/utils/algorithms.o \
+    $O/utils/point/Point.o \
+    $O/utils/point/Polygon.o \
+    $O/utils/point/Segment.o \
+    $O/applications/convergecast/ConvergecastPkt_m.o \
+    $O/applications/reqres/ReqResPkt_m.o \
+    $O/linklayer/ieee802154tsch/IEEE802154TSCHAck_m.o \
+    $O/linklayer/ieee802154tsch/IEEE802154TSCHPkt_m.o \
+    $O/middleware/shmg/messages/BackboneCommand_m.o \
+    $O/middleware/shmg/messages/BackboneDataInfo_m.o \
+    $O/middleware/shmg/messages/SHMGNetworkPkt_m.o \
+    $O/physicallayer/radio/base/RadioPkt_m.o \
+    $O/physicallayer/radio/base/SignalDescriptor_m.o \
+    $O/physicallayer/wired/base/WiredNICPkt_m.o
 
 # Message files
 MSGFILES = \
-    application/ConvergecastPkt.msg \
-    application/ReqResPkt.msg \
-    ietf6tisch/IETF6TiSCHAck.msg \
-    ietf6tisch/IETF6TiSCHPkt.msg \
-    ietf6tisch/NetworkLayerPkt.msg \
-    physicallayer/radio/RadioPkt.msg \
-    physicallayer/radio/SignalDescriptor.msg \
-    shmg/backboneprotocol/BackbonePkt.msg
+    applications/convergecast/ConvergecastPkt.msg \
+    applications/reqres/ReqResPkt.msg \
+    linklayer/ieee802154tsch/IEEE802154TSCHAck.msg \
+    linklayer/ieee802154tsch/IEEE802154TSCHPkt.msg \
+    middleware/shmg/messages/BackboneCommand.msg \
+    middleware/shmg/messages/BackboneDataInfo.msg \
+    middleware/shmg/messages/SHMGNetworkPkt.msg \
+    physicallayer/radio/base/RadioPkt.msg \
+    physicallayer/radio/base/SignalDescriptor.msg \
+    physicallayer/wired/base/WiredNICPkt.msg
 
 # SM files
 SMFILES =
@@ -97,9 +119,6 @@ include $(CONFIGFILE)
 
 # Simulation kernel and user interface libraries
 OMNETPP_LIBS = $(OPPMAIN_LIB) $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
-ifneq ($(PLATFORM),win32)
-LIBS += -Wl,-rpath,$(abspath /usr/local/lib/ortools/lib)
-endif
 
 COPTS = $(CFLAGS) $(IMPORT_DEFINES)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
 MSGCOPTS = $(INCLUDE_PATH)
@@ -116,8 +135,6 @@ endif
 
 #------------------------------------------------------------------------------
 # User-supplied makefile fragment(s)
--include makefrag
-
 #------------------------------------------------------------------------------
 
 # Main target
